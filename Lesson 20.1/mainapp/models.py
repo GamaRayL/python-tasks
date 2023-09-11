@@ -26,13 +26,11 @@ class Product(models.Model):
     create_at = models.DateTimeField(default=timezone.now, verbose_name='дата создания')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='дата последнего изменения')
 
-    is_active = models.BooleanField(default=True, verbose_name='учится')
-
     def __str__(self):
         return (f'{self.name} {self.description} {self.image_preview} '
-                f'{self.category} {self.price} {self.create_date} {self.last_change_date}')
+                f'{self.category} {self.price} {self.create_at} {self.updated_at}')
 
     class Meta:
-        verbose_name = 'продукт'
-        verbose_name_plural = 'продукты'
+        verbose_name = 'товар'
+        verbose_name_plural = 'товары'
         ordering = ('name',)
